@@ -11,8 +11,6 @@
 
 <body>
     <?php
-    $rubrik = $_POST['rubrik'];
-    $inlagg = $_POST['inlagg'];
 
         $host = 'localhost';
         $user = 'axtelius_user';
@@ -21,16 +19,25 @@
 
     $conn = new mysqli($host, $user, $pass, $database);
 
+
+
     if ($conn->connect_error)
         die("error" . $conn-connect_error);
 
-        $sql = "INSERT INTO blog (title, inlagg) VALUES ('$rubrik', '$inlagg')";
+        $sql = "SELECT * FROM blog";
 
     $result = $conn->query($sql);
     if (!$result)
         die("kunde inte spara inlägg: " . $conn->error);
     else
         echo "inlägg registrerat";
+while ($row = $result->fetch_assoc())
+        {
+            echo "<article>";
+            echo "<h3>" . $row['title'] . "</h3><h4>" . $row['time'] . "</h4><p>" . $row['inlagg'] . "</p>";
+            echo "</article>";
+        }
+
 
     $conn->close();
         ?>

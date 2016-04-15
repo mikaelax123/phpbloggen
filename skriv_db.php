@@ -11,13 +11,14 @@
 
 <body>
     <h2>Registrera inlägg</h2>
-    <form action="spara_db.php" method="post"></form>
-    <label>Rubrik</label>
-    <input type="text" maxlength="100" name="rubrik">
-    <br>
-    <label>text</label>
-    <textarea name="inlagg"></textarea>
-    <input type="submit" value="Spara">
+    <form action="spara_db.php" method="post">
+        <label>Rubrik</label>
+        <input type="text" maxlength="100" name="rubrik">
+        <br>
+        <label>text</label>
+        <textarea name="inlagg"></textarea>
+        <input type="submit" value="Spara">
+    </form>
 </body>
 
 </html>
